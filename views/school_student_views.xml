@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="school_class_form_view" model="ir.ui.view">
+            <field name="name">Student</field>
+            <field name="model">school.student</field>
+            <field name="arch" type="xml">
+                <form string="Student">
+                    <sheet>
+                        <group>
+                                <field name="name"/>
+                                <field name="class_id"/>
+                                <field name="divison"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_school_student" model="ir.actions.act_window">
+            <field name="name">Student</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">school.student</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    <record id="action_school_student_divison" model="ir.actions.act_window">
+            <field name="name">Divison</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">school.student</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+    <menuitem id="school_menu_root" name="School"/>
+<menuitem id="school_menu_student" name="Student" parent="school_menu_root" action="action_school_student"/>
+<menuitem id="school_menu_divison" name="Divison" parent="school_menu_root" action="action_school_student_divison" />
+</odoo>
+
